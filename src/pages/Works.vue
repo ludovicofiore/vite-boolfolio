@@ -35,11 +35,29 @@
 
 
 <template>
-<h1>works</h1>
+    <div class="works-container">
+
+        <h1>Elenco dei progetti:</h1>
+
+        <div>
+            <ul>
+                <li v-for="(work, index) in works" :key="index">{{ work.title }}</li>
+            </ul>
+        </div>
+    </div>
 
 </template>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
+    .works-container{
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+
+    li {
+        margin: 5px 0;
+    }
 
 </style>

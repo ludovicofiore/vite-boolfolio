@@ -4,7 +4,7 @@
 
 
 <template>
-  <div>
+  <div class="container">
 
     <nav>
       <ul>
@@ -24,5 +24,30 @@
 
 
 <style lang="scss">
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: bisque;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav {
+  width: 100%;
+  background-color: black;
+  padding: 10px 0;  
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
 
 </style>
