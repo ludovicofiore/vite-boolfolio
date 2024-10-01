@@ -4,7 +4,7 @@
 
 
 <template>
-<H1>home</H1>
+<h1>home</h1>
 
 </template>
 
