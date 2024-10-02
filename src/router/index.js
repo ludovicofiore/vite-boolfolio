@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../components/pages/Home.vue'
 import Projects from '../components/pages/Projects.vue'
 import ProjectDetail from '../components/pages/ProjectDetail.vue'
+import Page404 from '../components/pages/Page404.vue'
 
 
 const router = createRouter({
@@ -24,7 +25,20 @@ const router = createRouter({
       path: '/dettaglio-progetto/:slug',
       name: 'projectDetail',
       component: ProjectDetail,
+    },
+
+    {
+      path: '/errore-404',
+      name: 'page404',
+      component: Page404,
+    },
+
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/errore-404',
     }
+
+
 
   ]
 })

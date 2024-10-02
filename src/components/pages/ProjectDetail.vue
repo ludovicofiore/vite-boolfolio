@@ -29,7 +29,7 @@ export default {
                         this.project = res.data.project;
                         // console.log(this.project.technology.length);
                     }else {
-                        console.log('404');
+                        this.$router.push({name: 'page404'});
                         
                     }
                 })
