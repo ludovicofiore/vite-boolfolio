@@ -70,6 +70,10 @@ export default {
         <h4>Tecnologie</h4>
         <p>{{ getTechnologies(project)}}</p>
 
+        <div class="img-container">
+            <img :src="project.cover_img" :alt="project.title">
+        </div>
+
         <h4>Data di pubblicazione</h4>
         <p>{{ project.publication_date}}</p>
     </div>
@@ -80,6 +84,13 @@ export default {
 .project-container{
     width: 80%;
     margin: 0 auto;
+}
+
+.img-container{
+    width: 60%;
+    img{
+        max-width: 100%;
+    }
 }
 
 </style>
