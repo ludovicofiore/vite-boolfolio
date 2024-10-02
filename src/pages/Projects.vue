@@ -8,7 +8,7 @@
         
         data(){
             return {
-                works : [],
+                projects : [],
                 types: [],
                 technologies: [],
             }
@@ -16,9 +16,9 @@
 
         methods: {
             getApi(){
-                axios.get(store.apiUrl + 'works').then(response => {
+                axios.get(store.apiUrl + 'projects').then(response => {
 
-                    this.works = response.data;
+                    this.projects = response.data;
                     // console.log(this.works);
                 }),
 
@@ -52,7 +52,9 @@
         <div class="flex-container">
 
             <ul>
-                <li v-for="(work, index) in works" :key="index">{{ work.title }}</li>
+                <li v-for="(project, index) in projects" :key="index">
+                    <router-link :to="{name: 'projectDetail', params: {slug: project.slug}}">{{ project.title }}</router-link>  
+                </li>
             </ul>
 
             <div>
@@ -81,6 +83,11 @@
 
     li {
         margin: 5px 0;
+        a {
+            color: black;
+            text-decoration: none;
+            &:hover {text-decoration: underline;}
+        }
     }
 
     .flex-container {
