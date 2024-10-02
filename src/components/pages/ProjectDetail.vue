@@ -1,7 +1,7 @@
 <script>
 import {store} from '@/store/store';
 import axios from 'axios';
-import {getType, getTechnologies} from '../components/data/utils';
+import {getType, getTechnologies} from '../data/utils';
 
 export default {
     name: 'ProjectDetail',
@@ -14,10 +14,10 @@ export default {
                 cover_img: '',
                 publication_date: '',
                 type: {},
-                technologies: []
+                technology: []
             },
-            // getType,
-            // getTechnologies
+            getType,
+            getTechnologies
         }
     },
 
@@ -27,7 +27,7 @@ export default {
                 .then(res => {
                     if(res.data.success){
                         this.project = res.data.project;
-                        console.log(this.project);
+                        // console.log(this.project.technology.length);
                     }else {
                         console.log('404');
                         
@@ -36,14 +36,16 @@ export default {
         }
     },
 
-    computed: {
-        infoProject(){
-            const type = getType(this.project);
-            const technologies = getTechnologies(this.project);
-            return `Tipologia: ${type}
-                    Tecnologie: ${technologies}`
-        }
-    },
+    // computed: {
+    //     infoProject(){
+    //         const type = getType(this.project);
+    //         const technologies = getTechnologies(this.project);
+    //         // console.log(technologies);
+            
+    //         return `Tipologia: ${type}
+    //                 Tecnologie: ${technologies}`
+    //     }
+    // },
 
     mounted(){
         const slug = this.$route.params.slug;
@@ -60,13 +62,13 @@ export default {
         <h4>Descrizione</h4>
         <p>{{ project.description }}</p>
 
-        <p>{{ infoProject }}</p>
+        <!-- <p>{{ infoProject }}</p> -->
 
-        <!-- <h4>Tipologia</h4>
+        <h4>Tipologia</h4>
         <p>{{ getType(project) }}</p>
 
         <h4>Tecnologie</h4>
-        <p>{{ getTechnologies(project)}}</p> -->
+        <p>{{ getTechnologies(project)}}</p>
 
         <h4>Data di pubblicazione</h4>
         <p>{{ project.publication_date}}</p>
